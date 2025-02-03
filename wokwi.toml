@@ -1,0 +1,59 @@
+[wokwi]
+version = "0.1.0"
+title = "Projeto Temporizador com LEDs e Botão"
+firmware = "./build/clock_temporizadores.uf2"
+
+[[components]]
+type = "rp2040"
+id = "pico"
+pinout = [
+  { name = "GP10", function = "OUTPUT" },
+  { name = "GP11", function = "OUTPUT" },
+  { name = "GP12", function = "OUTPUT" },
+  { name = "GP5", function = "INPUT_PULLUP" }
+]
+
+[[components]]
+type = "led"
+id = "led_red"
+color = "red"
+pin = "pico:GP10"
+
+[[components]]
+type = "led"
+id = "led_green"
+color = "green"
+pin = "pico:GP11"
+
+[[components]]
+type = "led"
+id = "led_blue"
+color = "blue"
+pin = "pico:GP12"
+
+[[components]]
+type = "resistor"
+id = "resistor_red"
+resistance = "330"
+pin1 = "led_red:anode"
+pin2 = "pico:GND"
+
+[[components]]
+type = "resistor"
+id = "resistor_green"
+resistance = "330"
+pin1 = "led_green:anode"
+pin2 = "pico:GND"
+
+[[components]]
+type = "resistor"
+id = "resistor_blue"
+resistance = "330"
+pin1 = "led_blue:anode"
+pin2 = "pico:GND"
+
+[[components]]
+type = "button"
+id = "button"
+pin = "pico:GP5"
+pull = "UP"
